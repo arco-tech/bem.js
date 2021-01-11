@@ -1,14 +1,14 @@
 export function blk(block: string, ...modifiers: any[]): string {
-  return `${block} ${mods(block, modifiers)}`.trim()
+  return `${block} ${mod(block, modifiers)}`.trim()
 }
 
-export function mods(block: string, ...modifiers: any[]): string {
+export function mod(block: string, ...modifiers: any[]): string {
   return modifiers
     .map((modifier: any) => {
       if (typeof modifier === "string") {
         return `${block}--${modifier}`
       } else if (Array.isArray(modifier)) {
-        return mods(block, ...modifier)
+        return mod(block, ...modifier)
       }
     })
     .filter((modifier: string | undefined) => modifier)
@@ -16,16 +16,16 @@ export function mods(block: string, ...modifiers: any[]): string {
 }
 
 export function sblk(block: string, ...modifiers: any[]): string {
-  return `.${block}${smods(block, modifiers)}`
+  return `.${block}${smod(block, modifiers)}`
 }
 
-export function smods(block: string, ...modifiers: any[]): string {
+export function smod(block: string, ...modifiers: any[]): string {
   return modifiers
     .map((modifier: any) => {
       if (typeof modifier === "string") {
         return `.${block}--${modifier}`
       } else if (Array.isArray(modifier)) {
-        return smods(block, ...modifier)
+        return smod(block, ...modifier)
       }
     })
     .filter((modifier: string | undefined) => modifier)

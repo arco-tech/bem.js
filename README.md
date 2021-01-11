@@ -21,7 +21,7 @@ yarm i @arco-tech/bem
 ### Example Usage
 
 ```javascript
-import { blk, mods, sblk, smods } from "@arco-tech/bem"
+import { blk, mod, sblk, smod } from "@arco-tech/bem"
 
 blk("input", "key-icon", "blue")
 // "input input--key-icon input--blue"
@@ -34,11 +34,11 @@ blk("button", ["green", "wide", ["disabled"]])
 // "button button--green button--wide button--disabled"
 
 
-mods("card", "rounded", "shadow")
+mod("card", "rounded", "shadow")
 // "card--rounded card--shadow"
 
 const disabled = false
-mods("toggle", ["red", disabled && "disabled"])
+mod("toggle", ["red", disabled && "disabled"])
 // "toggle--red"
 
 
@@ -50,6 +50,6 @@ sblk("button", "add-icon", disabled && "disabled")
 // ".button.button--add-icon.button--disabled"
 
 
-smods("container", "align-center", "large-margin")
+smod("container", "align-center", "large-margin")
 // ".container--align-center.container--large-margin"
 ```

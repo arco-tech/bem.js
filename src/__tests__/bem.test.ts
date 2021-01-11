@@ -1,4 +1,4 @@
-import { blk, mods, sblk, smods } from "../bem"
+import { blk, mod, sblk, smod } from "../bem"
 
 describe("blk", () => {
   test("accepts strings", () => {
@@ -36,39 +36,39 @@ describe("sblk", () => {
   })
 })
 
-describe("mods", () => {
+describe("mod", () => {
   test("accepts strings", () => {
-    expect(mods("x", "a", "b", "c")).toEqual("x--a x--b x--c")
+    expect(mod("x", "a", "b", "c")).toEqual("x--a x--b x--c")
   })
 
   test("accepts a list of strings", () => {
-    expect(mods("x", ["a", "b", "c"])).toEqual("x--a x--b x--c")
+    expect(mod("x", ["a", "b", "c"])).toEqual("x--a x--b x--c")
   })
 
   test("accepts nested lists", () => {
-    expect(mods("x", [[["a"]], "b"])).toEqual("x--a x--b")
+    expect(mod("x", [[["a"]], "b"])).toEqual("x--a x--b")
   })
 
   test("ignores non-string values", () => {
-    expect(mods("x", false, null, 1, /a/, [undefined, true])).toEqual("")
+    expect(mod("x", false, null, 1, /a/, [undefined, true])).toEqual("")
   })
 })
 
-describe("smods", () => {
+describe("smod", () => {
   test("accepts strings", () => {
-    expect(smods("x", "a", "b", "c")).toEqual(".x--a.x--b.x--c")
+    expect(smod("x", "a", "b", "c")).toEqual(".x--a.x--b.x--c")
   })
 
   test("accepts a list of strings", () => {
-    expect(smods("x", ["a", "b", "c"])).toEqual(".x--a.x--b.x--c")
+    expect(smod("x", ["a", "b", "c"])).toEqual(".x--a.x--b.x--c")
   })
 
   test("accepts nested lists", () => {
-    expect(smods("x", [[["a"]], "b"])).toEqual(".x--a.x--b")
+    expect(smod("x", [[["a"]], "b"])).toEqual(".x--a.x--b")
   })
 
   test("ignores non-string values", () => {
-    expect(smods("x", false, null, 1, /a/, [undefined, true])).toEqual("")
+    expect(smod("x", false, null, 1, /a/, [undefined, true])).toEqual("")
   })
 })
 
